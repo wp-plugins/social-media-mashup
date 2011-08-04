@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Mashup
  * Plugin URI: http://bravenewmedia.net/wordpress-plugins/social-media-mashup/
  * Description: Combine your Twitter, Facebook, Google+, Flickr, YouTube, and any RSS feeds into one stream.
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Brave New Media, Inc.
  * Author URI: http://bravenewmedia.net/
  * License: GPLv3

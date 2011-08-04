@@ -3,7 +3,7 @@ Contributors: bravenewmedia, aliso
 Tags: social media, facebook, twitter, google+, google plus, youtube, flickr, stream
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 Combine your Twitter, Facebook, Google+, Flickr, YouTube, and any RSS feeds into one stream.
 
@@ -48,7 +48,18 @@ Contact us at [Brave New Media](http://bravenewmedia.net/contact-us/?plugin_supp
 1. Social stream displaying as a widget
 2. Plugin settings
 
+== Upgrade Notice ==
+
+= 1.0.1 =
+This update fixes display problems on the plugin's settings screen.
+
 == Changelog ==
+
+= 1.0.1 =
+* Added warning on settings screen if the `smm-cache` folder is not writable by the server
+* Disabled cache duration setting if the `smm-cache` folder is not writable by the server
+* Fixed display issue on settings screen: admin footer drawn on top of content
+* Fixed display issue on settings screen: low-resolution screens had a horizontal scroll
 
 = 1.0 =
 * Initial release

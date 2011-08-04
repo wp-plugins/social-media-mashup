@@ -99,13 +99,17 @@ class SMM_Options {
 		
 		echo '<div class="wrap">
 	<div class="icon32" id="icon-options-general"></div>
-	<h2>' . __( 'Social Media Mashup', BNM_LOCALE ) . '</h2>
-	<div class="has-right-sidebar">
+	<h2>' . __( 'Social Media Mashup', BNM_LOCALE ) . '</h2>';
+	
+	if ( ! is_writable( SMM_DIR . '/smm-cache' ) )
+		echo '<div class="error"><p>' . sprintf( __( '%sWarning:%s The %s folder in this plugin is not writable by the server. Feed caching is disabled.', BNM_LOCALE ), '<strong>', '</strong>', '<code>smm-cache</code>' ) . '</p></div>';
+	
+	echo '<div class="has-right-sidebar">
 		<div id="poststuff">';
 		$this->sidebar();
 		echo '</div>';
 		
-		echo '<div style="float: left; width: 80%;">
+		echo '<div style="float: left; width: 75%;">
 		<form action="options.php" method="post">';
 	
 		settings_fields( 'smm_options' );
@@ -117,7 +121,6 @@ class SMM_Options {
 		</div>
 		</form>
 		</div>
-	</div>
 </div>';
 		
 	}
@@ -201,6 +204,10 @@ class SMM_Options {
 					echo ' <span class="description">' . $desc . '</span>';
 				
 				break;
+			
+			case 'html':
+		 		echo $desc;
+		 		break;
 			
 			case 'text':
 			default:
@@ -305,13 +312,24 @@ class SMM_Options {
 		/* Feed Cache
 		===========================================*/
 		
-		$this->settings['cache_time'] = array(
-			'title'   => __( 'Feed cache duration', BNM_LOCALE ),
-			'desc'    => '<br />' . sprintf( __( 'Specify the amount of time (in minutes) to cache the feeds. Set to %s to disable caching. %sTurning off the cache could negatively impact performance.', BNM_LOCALE ), '<strong>0</strong>', '<br /><strong>' ) . '</strong>',
-			'std'     => '60',
-			'type'    => 'text',
-			'section' => 'cache'
-		);
+		if ( is_writable( SMM_DIR . '/smm-cache' ) ) {
+			$this->settings['cache_time'] = array(
+				'title'   => __( 'Feed cache duration', BNM_LOCALE ),
+				'desc'    => '<br />' . sprintf( __( 'Specify the amount of time (in minutes) to cache the feeds. Set to %s to disable caching. %sTurning off the cache could negatively impact performance.', BNM_LOCALE ), '<strong>0</strong>', '<br /><strong>' ) . '</strong>',
+				'std'     => '60',
+				'type'    => 'text',
+				'section' => 'cache'
+			);
+		}
+		else {
+			$this->settings['cache_time'] = array(
+				'title' => __( 'Feed cache duration', BNM_LOCALE ),
+				'desc'    => '<em>' . sprintf( __( 'The %s folder in this plugin is not writable by the server. Feed caching is disabled.', BNM_LOCALE ), '<code>smm-cache</code>' ) . '</em>',
+				'std'     => '',
+				'type'    => 'html',
+				'section' => 'cache'
+			);
+		}
 		
 		/* Display Settings
 		===========================================*/
@@ -397,7 +415,7 @@ class SMM_Options {
 	*/
 	public function sidebar() {
 		
-		echo '<div id="side-info-column" class="inner-sidebar" style="width: 20%;">';
+		echo '<div id="side-info-column" class="inner-sidebar" style="width: 25%;">';
 		
 		/* About BNM
 		========================================================*/
