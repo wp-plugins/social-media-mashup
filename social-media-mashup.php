@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Mashup
  * Plugin URI: http://bravenewmedia.net/wordpress-plugins/social-media-mashup/
  * Description: Combine your Twitter, Facebook, Google+, Flickr, YouTube, and any RSS feeds into one stream.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Brave New Media, Inc.
  * Author URI: http://bravenewmedia.net/
  * License: GPLv3
@@ -65,7 +65,8 @@ function social_media_mashup( $count = null ) {
 		$feeds[] = get_bloginfo( 'rss2_url' );
 	
 	// SimplePie magic starts here.
-	require_once( SMM_DIR . '/simplepie.inc' );
+	if ( ! class_exists( 'SimplePie' ) )
+		require_once( SMM_DIR . '/simplepie.inc' );
 	
 	$feed = new SimplePie();
 	$feed->set_feed_url( $feeds );

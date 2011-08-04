@@ -435,7 +435,8 @@ class SMM_Options {
 				<h3 class="hndle">' . sprintf( __( 'The %s Blog', BNM_LOCALE ), 'Brave New Media' ) . '</h3>
 				<div class="inside">';
 		
-		require_once( SMM_DIR . '/simplepie.inc' );
+		if ( ! class_exists( 'SimplePie' ) )
+			require_once( SMM_DIR . '/simplepie.inc' );
 		
 		$feed = new SimplePie();
 		$feed->set_feed_url( 'http://blog.bravenewmedia.net/feed/' );

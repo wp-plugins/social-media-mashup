@@ -3,7 +3,7 @@ Contributors: bravenewmedia, aliso
 Tags: social media, facebook, twitter, google+, google plus, youtube, flickr, stream
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 Combine your Twitter, Facebook, Google+, Flickr, YouTube, and any RSS feeds into one stream.
 
@@ -12,6 +12,8 @@ Combine your Twitter, Facebook, Google+, Flickr, YouTube, and any RSS feeds into
 Social Media Mashup provides a widget and template tag to display a combined social media & RSS stream. A simple options panel and minimal CSS make this plugin easy to install and visually compatible on any WordPress site.
 
 See the [screenshots](http://wordpress.org/extend/plugins/social-media-mashup/screenshots/) for an example of the plugin in action.
+
+**Note:** Twitter stopped directly supporting RSS feeds a short while ago, and as a result Twitter feeds are intermittently disappearing from the mashup. We are currently working on a solution to make the Twitter feeds more reliable. **In the meantime,** use the caching feature of this plugin to increase the reliability of your Twitter feed.
 
 == Installation ==
 
@@ -50,10 +52,17 @@ Contact us at [Brave New Media](http://bravenewmedia.net/contact-us/?plugin_supp
 
 == Upgrade Notice ==
 
+= 1.0.2 =
+This update fixes an incompatibility with other plugins using SimplePie.
+
 = 1.0.1 =
 This update fixes display problems on the plugin's settings screen.
 
 == Changelog ==
+
+= 1.0.2 =
+* Added a note about Twitter feed reliability
+* Fixed error caused by other plugins loading SimplePie before Social Media Mashup
 
 = 1.0.1 =
 * Added warning on settings screen if the `smm-cache` folder is not writable by the server
