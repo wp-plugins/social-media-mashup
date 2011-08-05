@@ -3,7 +3,7 @@
  * Plugin Name: Social Media Mashup
  * Plugin URI: http://bravenewmedia.net/wordpress-plugins/social-media-mashup/
  * Description: Combine your Twitter, Facebook, Google+, Flickr, YouTube, and any RSS feeds into one stream.
- * Version: 1.0.2
+ * Version: 1.1
  * Author: Brave New Media, Inc.
  * Author URI: http://bravenewmedia.net/
  * License: GPLv3
@@ -39,11 +39,11 @@ if ( ! defined( 'SMM_DIR' ) )
 /* Make it go
 ========================================================*/
 
-function social_media_mashup( $count = null ) {
+function social_media_mashup( $count = null, $echo = true ) {
 	
-	echo "\n<!-- Social Media Mashup plugin by Brave New Media -->\n";
+	$output = "\n<!-- Social Media Mashup plugin by Brave New Media -->\n";
 	
-	echo '<div class="social-media-mashup icons-' . smm_option( 'show_icons' ) . '">' . "\n";
+	$output .= '<div class="social-media-mashup icons-' . smm_option( 'show_icons' ) . '">' . "\n";
 	
 	if ( ! $count )
 		$count = 5;
@@ -84,11 +84,11 @@ function social_media_mashup( $count = null ) {
 		$feed->enable_cache( true );
 		$feed->set_cache_duration( (int)smm_option( 'cache_time' ) * 60 );
 		$feed->set_cache_location( SMM_DIR . '/smm-cache' );
-		echo "\t<!-- Social Media Mashup cache is enabled. Duration: " . smm_option( 'cache_time' ) . " minutes -->\n";
+		$output .= "\t<!-- Social Media Mashup cache is enabled. Duration: " . smm_option( 'cache_time' ) . " minutes -->\n";
 	}
 	else {
 		$feed->enable_cache( false );
-		echo "\t<!-- Social Media Mashup cache is disabled. -->\n";
+		$output .= "\t<!-- Social Media Mashup cache is disabled. -->\n";
 	}
 	
 	// Start SimplePie's engines.
@@ -143,16 +143,21 @@ function social_media_mashup( $count = null ) {
 		$final = apply_filters( 'the_content', $final );
 		
 		// Engage!
-		echo "\n\t" . '<div class="smm-item smm-' . $item_class . '">
+		$output .= "\n\t" . '<div class="smm-item smm-' . $item_class . '">
 		' . $final . '
 		<p class="entry-meta">' . $source . '<a href="' . $item->get_permalink() . '">' . smm_friendly_date( $item->get_date( 'c' ) ) . ' &rarr;</a></p>
 	</div>' . "\n";
 	
 	endforeach;
 	
-	echo "</div>\n";
+	$output .= "</div>\n";
 	
-	echo "<!-- End Social Media Mashup plugin -->\n";
+	$output .= "<!-- End Social Media Mashup plugin -->\n";
+	
+	if ( $echo )
+		echo $output;
+	else
+		return $output;
 	
 }
 
@@ -219,6 +224,24 @@ function smm_feed_class( $feed_url ) {
 ========================================================*/
 
 require_once( SMM_DIR . '/widget.php' );
+
+/* Shortcode
+========================================================*/
+
+add_shortcode( 'social-media-mashup', 'smm_shortcode' );
+
+/**
+ * [social-media-mashup count="5"]
+ */
+function smm_shortcode( $atts ) {
+	
+	extract( shortcode_atts( array(
+		'count' => 5,
+	), $atts ) );
+	
+	return social_media_mashup( $count, false );
+	
+}
 
 /* Friendly dates (i.e. "2 days ago")
 ========================================================*/

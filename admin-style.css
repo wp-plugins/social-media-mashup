@@ -34,3 +34,10 @@ a.rsswidget {
 	font-size: 12px;
 	margin-left: 3px;
 }
+
+.smm-pre {
+	background: #fff;
+	font-size: 0.9em;
+	line-height: 1.4;
+	padding: 5px 2px;
+}
