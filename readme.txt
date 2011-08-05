@@ -3,7 +3,7 @@ Contributors: bravenewmedia, aliso
 Tags: social media, facebook, twitter, google+, google plus, youtube, flickr, stream
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 1.0.2
+Stable tag: 1.1
 
 Combine your Twitter, Facebook, Google+, Flickr, YouTube, and any RSS feeds into one stream.
 
@@ -21,19 +21,30 @@ See the [screenshots](http://wordpress.org/extend/plugins/social-media-mashup/sc
 1. Make sure the `smm-cache` folder inside the plugin folder is writeable by the server (permissions set to 755, 775, or 777 depending on your web host)
 1. Activate the plugin through the **Plugins** menu in WordPress
 1. Go to **Settings > Social Media Mashup** to enter social media & feed information
-1. Use the widget or template tag to display the social stream: `<?php if ( function_exists( 'social_media_mashup' ) ) social_media_mashup(5); ?>`
+1. See the instructions in the upper-right of the settings page for the shortcode & template tag
 
 == Frequently Asked Questions ==
 
-= How do I display this in my theme, without using the widget? =
+= Is there a shortcode? =
 
-Use this template tag:
+There is now! To insert a mashup into any post or page, use this shortcode in the content area:
 
-`<?php if ( function_exists( 'social_media_mashup' ) ) social_media_mashup(5); ?>`
+`[social-media-mashup count="5"]`
 
-Change the number to customize how many entries are displayed in the stream.
+Change `count` to customize the number of items displayed.
 
-= I have a question about this plugin. =
+= What's the template tag? =
+
+Insert this code into your theme to display a mashup:
+
+`<?php
+if (function_exists('social_media_mashup'))
+	social_media_mashup(5);
+?>`
+
+Change `5` to customize the number of items displayed.
+
+== Have another question? ==
 
 Contact us at [Brave New Media](http://bravenewmedia.net/contact-us/?plugin_support=Yes+(Social+Media+Mashup)) or on Twitter [@BraveNewTweet](http://twitter.com/#!/bravenewtweet).
 
@@ -52,6 +63,9 @@ Contact us at [Brave New Media](http://bravenewmedia.net/contact-us/?plugin_supp
 
 == Upgrade Notice ==
 
+= 1.1 =
+This update adds a shortcode for use in your posts and pages.
+
 = 1.0.2 =
 This update fixes an incompatibility with other plugins using SimplePie.
 
@@ -59,6 +73,10 @@ This update fixes an incompatibility with other plugins using SimplePie.
 This update fixes display problems on the plugin's settings screen.
 
 == Changelog ==
+
+= 1.1 =
+* Added shortcode functionality
+* Added usage instructions to admin screen
 
 = 1.0.2 =
 * Added a note about Twitter feed reliability

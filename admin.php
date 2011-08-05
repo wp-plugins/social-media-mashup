@@ -417,6 +417,24 @@ class SMM_Options {
 		
 		echo '<div id="side-info-column" class="inner-sidebar" style="width: 25%;">';
 		
+		/* Instructions
+		========================================================*/
+		echo '<div class="postbox">
+				<h3 class="hndle">' . __( 'How to Use', BNM_LOCALE ) . '</h3>
+				<div class="inside">';
+		
+		echo '<h4>' . __( 'Shortcode', BNM_LOCALE ) . '</h4>
+		<p>' . __( 'To insert a mashup into any post or page, use this shortcode in the content area:', BNM_LOCALE ) . '</p>
+		<pre class="smm-pre">[social-media-mashup count="5"]</pre>
+		<p>' . sprintf( __( 'Change %s to customize the number of items displayed.', BNM_LOCALE ), '<code>count</code>' ) . '</p>
+		<h4>' . __( 'Template Tag', BNM_LOCALE ) . '</h4>
+		<p>' . __( 'Insert this code into your theme to display a mashup:', BNM_LOCALE ) . '</p>' . 
+		"<pre class='smm-pre'>&lt;?php\nif (function_exists('social_media_mashup'))\n\tsocial_media_mashup(5);\n?&gt;</pre>" . 
+		'<p>' . sprintf( __( 'Change %s to customize the number of items displayed.', BNM_LOCALE ), '<code>5</code>' ) . '</p>';
+		
+		echo '</div>
+			</div>';
+		
 		/* About BNM
 		========================================================*/
 		echo '<div class="postbox">
