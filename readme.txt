@@ -3,7 +3,7 @@ Contributors: bravenewmedia, aliso
 Tags: social media, facebook, twitter, google+, google plus, youtube, flickr, stream
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 1.1.1
+Stable tag: trunk
 
 Combine Twitter, Facebook, Google+, Flickr, YouTube, and custom RSS feeds into one stream.
 
