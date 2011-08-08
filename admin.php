@@ -442,7 +442,8 @@ class SMM_Options {
 				<div class="inside">';
 		
 		echo '<p>' . sprintf( __( 'Based in Minneapolis, %s is a content development and management company founded in 1998. Rooted in design and video and around since the inception of the internet, %s works with local, national and international companies in creating compelling stories that support their brands in all digital media.', BNM_LOCALE ), 'Brave New Media', 'Brave New Media' ) . '</p>
-		<p><a href="http://bravenewmedia.net/" target="_blank" class="button">' . __( 'Visit Our Website', BNM_LOCALE ) . '</a></p>';
+		<p><a href="http://bravenewmedia.net/" target="_blank" class="button">' . __( 'Visit Our Website', BNM_LOCALE ) . '</a>
+		<a href="http://bnm.zendesk.com/" target="_blank" class="button">' . __( 'Get Support', BNM_LOCALE ) . '</a></p>';
 		
 		echo '</div>
 			</div>';

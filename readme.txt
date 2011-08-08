@@ -3,9 +3,9 @@ Contributors: bravenewmedia, aliso
 Tags: social media, facebook, twitter, google+, google plus, youtube, flickr, stream
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 
-Combine your Twitter, Facebook, Google+, Flickr, YouTube, and any RSS feeds into one stream.
+Combine Twitter, Facebook, Google+, Flickr, YouTube, and custom RSS feeds into one stream.
 
 == Description ==
 
@@ -46,7 +46,7 @@ Change `5` to customize the number of items displayed.
 
 == Have another question? ==
 
-Contact us at [Brave New Media](http://bravenewmedia.net/contact-us/?plugin_support=Yes+(Social+Media+Mashup)) or on Twitter [@BraveNewTweet](http://twitter.com/#!/bravenewtweet).
+Check out our support forums or submit a ticket at [Brave New Media Support](http://bnm.zendesk.com/home). You can also contact us at [Brave New Media](http://bravenewmedia.net/contact-us/?plugin_support=Yes+(Social+Media+Mashup)) or on Twitter [@BraveNewTweet](http://twitter.com/#!/bravenewtweet).
 
 == Credits ==
 
@@ -63,6 +63,9 @@ Contact us at [Brave New Media](http://bravenewmedia.net/contact-us/?plugin_supp
 
 == Upgrade Notice ==
 
+= 1.1.1 =
+This update adds links to online support to the settings screen and the README file.
+
 = 1.1 =
 This update adds a shortcode for use in your posts and pages.
 
@@ -73,6 +76,10 @@ This update fixes an incompatibility with other plugins using SimplePie.
 This update fixes display problems on the plugin's settings screen.
 
 == Changelog ==
+
+= 1.1.1 =
+* Added links to online support to admin screen & README file
+* Updated the short description
 
 = 1.1 =
 * Added shortcode functionality
