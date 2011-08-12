@@ -1,5 +1,5 @@
 === Social Media Mashup ===
-Contributors: bravenewmedia, aliso
+Contributors: bravenewmedia
 Tags: social media, facebook, twitter, google+, google plus, youtube, flickr, stream
 Requires at least: 3.0
 Tested up to: 3.2.1
